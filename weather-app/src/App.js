@@ -4,6 +4,13 @@ import Weather from './Weather'
 
 import './App.css';
 
+const divStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  fontFamily: 'Shadows Into Light'
+}
+
 class App extends Component {
   constructor(){
     super()
@@ -43,7 +50,7 @@ class App extends Component {
   render(){
     
     return(
-      <div>
+      <div style={divStyle}>
         <h1>Let's Take A Look at That Forecast</h1>
         <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
         
