@@ -1,28 +1,64 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import WeatherCard from './WeatherCard';
+import Weather from './Weather'
+
 import './App.css';
 
+const divStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  fontFamily: 'Shadows Into Light'
+}
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+  constructor(){
+    super()
+    this.state = {
+      getWeather: [],
+      getLocation: [],
+      isLoading: false   
+     };
+  }
+  componentDidMount(){
+    this.getWeather('http://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=04062')
+  }
+
+  getWeather = URL => {
+
+    fetch(URL)
+    .then(response => {
+      
+      return response.json();
+    })
+      .then(data => {
+        console.log(data);
+        this.setState({ 
+
+          getWeather: data.current,
+          getLocation: data.location
+           });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+
+  };
+
+  
+
+  render(){
+    
+    return(
+      <div style={divStyle}>
+        <h1>Let's Take A Look at That Forecast</h1>
+        <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
+        
       </div>
-    );
+    )
   }
 }
+
+
 
 export default App;
