@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import WeatherCard from './WeatherCard';
+import Weather from './Weather'
 
 import './App.css';
 
@@ -7,6 +9,7 @@ class App extends Component {
     super()
     this.state = {
       getWeather: [],
+      getLocation: [],
       isLoading: false   
      };
   }
@@ -20,20 +23,30 @@ class App extends Component {
     .then(response => {
       
       return response.json();
-    }).then(data =>  {
-     
-      console.log(data);  
-    });
+    })
+      .then(data => {
+        console.log(data);
+        this.setState({ 
+
+          getWeather: data.current,
+          getLocation: data.location
+           });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
 
   };
 
   
 
   render(){
+    
     return(
       <div>
         <h1>Let's Take A Look at That Forecast</h1>
-
+        <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
+        
       </div>
     )
   }
