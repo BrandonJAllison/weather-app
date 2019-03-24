@@ -12,7 +12,7 @@ const divStyle = {
   alignItems: 'center',
   fontFamily: 'Shadows Into Light'
 }
-const zip = 17824
+
 
 class App extends Component {
   constructor(){
@@ -20,7 +20,6 @@ class App extends Component {
     this.state = {
       getWeather: [],
       getLocation: [],
-      zipCode: [],
       isLoading: false   
      };
   }
@@ -49,7 +48,17 @@ class App extends Component {
 
   };
 
-  
+  change= event => this.setState(
+    { [event.target.name]: event.target.value});
+
+
+  submit = zip => {
+
+    const zipcode = {zip};
+    console.log(zipcode)
+
+   
+  };
 
  
   
@@ -58,7 +67,7 @@ class App extends Component {
     
     return(
       <div style={divStyle}>
-      <NavBar  />
+      <NavBar handleSubmit={this.submit} handleChange={this.change} />
         <h1>Let's Take A Look at That Forecast</h1>
         <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
         <Forecast />
