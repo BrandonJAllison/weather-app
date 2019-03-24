@@ -3,8 +3,7 @@ import ForecastList from './ForecastList'
 
 const styleDiv = {
   display: 'flex',
- justifyContent: 'center',
-  border: '1px solid black',
+  justifyContent: 'center',
   width: '100%'
   
 }

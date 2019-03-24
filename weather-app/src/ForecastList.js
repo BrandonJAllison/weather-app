@@ -9,13 +9,10 @@ const ForecastList = (props) => {
         <div>
             {props.getForecast.map((data) => {
 
-               
-                
                 return(
                     
                     <ForecastCard  data={data}  />
                 ) 
-                
                 
             })
             }

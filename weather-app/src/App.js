@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherCard from './WeatherCard';
 import Forecast from './Forecast';
+import NavBar from './NavBar'
 
 
 import './App.css';
@@ -11,6 +12,7 @@ const divStyle = {
   alignItems: 'center',
   fontFamily: 'Shadows Into Light'
 }
+const zip = 17824
 
 class App extends Component {
   constructor(){
@@ -18,6 +20,7 @@ class App extends Component {
     this.state = {
       getWeather: [],
       getLocation: [],
+      zipCode: [],
       isLoading: false   
      };
   }
@@ -46,6 +49,8 @@ class App extends Component {
 
   };
 
+  
+
  
   
 
@@ -53,6 +58,7 @@ class App extends Component {
     
     return(
       <div style={divStyle}>
+      <NavBar  />
         <h1>Let's Take A Look at That Forecast</h1>
         <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
         <Forecast />
