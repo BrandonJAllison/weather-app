@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import WeatherCard from './WeatherCard';
-import Weather from './Weather'
+import Forecast from './Forecast';
+import NavBar from './NavBar'
+
 
 import './App.css';
 
@@ -10,6 +12,7 @@ const divStyle = {
   alignItems: 'center',
   fontFamily: 'Shadows Into Light'
 }
+
 
 class App extends Component {
   constructor(){
@@ -45,14 +48,29 @@ class App extends Component {
 
   };
 
+  change= event => this.setState(
+    { [event.target.name]: event.target.value});
+
+
+  submit = zip => {
+
+    const zipcode = {zip};
+    console.log(zipcode)
+
+   
+  };
+
+ 
   
 
   render(){
     
     return(
       <div style={divStyle}>
+      <NavBar handleSubmit={this.submit} handleChange={this.change} />
         <h1>Let's Take A Look at That Forecast</h1>
         <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
+        <Forecast />
         
       </div>
     )
