@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherCard from './WeatherCard';
-import Weather from './Weather'
+import Forecast from './Forecast';
+
 
 import './App.css';
 
@@ -45,6 +46,7 @@ class App extends Component {
 
   };
 
+ 
   
 
   render(){
@@ -53,6 +55,7 @@ class App extends Component {
       <div style={divStyle}>
         <h1>Let's Take A Look at That Forecast</h1>
         <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
+        <Forecast />
         
       </div>
     )
