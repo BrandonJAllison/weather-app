@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 const styleDiv = {
     display: 'flex',
@@ -38,25 +38,56 @@ const links = {
     
 }
 
-const NavBar = props => {
+
+
+  class NavBar extends Component {
+    constructor(){
+        super()
+        this.state={
+
+            zip: ''
+        }
+    }
+
+    handleChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+      };
+
+
+      
+        
+    handleLogin = (event) =>{
+        const zipcode = this.state.zip;
+        event.preventDefault();
+        localStorage.setItem('zipcode', zipcode); 
+        
+    }
+      
+      
+
+
+
+    render(){
     return (
     
     <div style = {styleDiv}>
         <p>Please Enter Your Zip Code</p>
        <input style = {styleInput} 
        
-        type="text"
-        name="search"
-        
-        placeholder= "...zip code"/>
+       type='numbers'
+       name='zip'
+       placeholer='Zipcode'
+       required="required"
+       value={this.state.zip}
+       onChange={this.handleChange}/>
 
-        <button style ={styleBtn} type="submit"><i className="fa fa-search"></i></button>
+        <button  style ={styleBtn}  onClick={this.handleLogin} type="submit"><i className="fa fa-search"></i></button>
         <p style= {links}>About</p>
     </div>
 
     )
     
-
+    }
 };
 
 
