@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import WeatherCard from './WeatherCard';
-import Forecast from './Forecast';
-import NavBar from './NavBar'
+import Login from './Login'
+import AppPage from './AppPage.js'
+import loginAuth from './LoginAuth'
+
 
 
 import './App.css';
 
 const divStyle = {
+  
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -18,65 +20,23 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      getWeather: [],
-      getLocation: [],
+     
       isLoading: false   
      };
   }
-  componentDidMount(){
-    this.getWeather('http://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=04062')
-  }
-
-  getWeather = URL => {
-
-    fetch(URL)
-    .then(response => {
-      
-      return response.json();
-    })
-      .then(data => {
-        console.log(data);
-        this.setState({ 
-
-          getWeather: data.current,
-          getLocation: data.location
-           });
-      })
-      .catch(err => {
-        throw new Error(err);
-      });
-
-  };
-
-  change= event => this.setState(
-    { [event.target.name]: event.target.value});
-
-
-  submit = zip => {
-
-    const zipcode = {zip};
-    console.log(zipcode)
-
-   
-  };
-
- 
   
-
   render(){
     
     return(
       <div style={divStyle}>
-      <NavBar handleSubmit={this.submit} handleChange={this.change} />
-        <h1>Let's Take A Look at That Forecast</h1>
-        <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
-        <Forecast />
+
+      <LoginAuth/>
         
       </div>
     )
   }
 }
 
-
+const LoginAuth = loginAuth(AppPage)(Login)
 
 export default App;
