@@ -13,10 +13,23 @@ const loginAuth = AppPage => Login =>
            
       };
     }
+
+    componentDidMount() {
+      if (localStorage.getItem('zipcode')) {
+          this.setState ({loggedIn: true});
+      }else {
+          this.setState ({loggedIn: false});
+      }
+  }
+  
+ handleLogOut = () =>{
+  localStorage.removeItem('zipcode'); 
+  this.setState({loggedIn: !this.state.loggedIn});
+}
      
     render() {
       if (!this.state.loggedIn) return <Login  />;
-      return <AppPage />;
+      return <AppPage handleLogOut={this.handleLogOut} />;
     }
   };
 

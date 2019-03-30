@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ForecastList from './ForecastList'
 
-const styleDiv = {
-  display: 'flex',
-  justifyContent: 'center',
+const width = {
+  marginTop: '25px',
   width: '100%'
   
 }
+
+
 
 class Forecast extends Component {
   constructor(){
@@ -46,10 +47,10 @@ componentDidMount(){
     
     return(
 
-      <div style={styleDiv}>
+      <div style={width}>
 
         
-        <ForecastList getForecast = {this.state.getForecast} />
+        <ForecastList  getForecast = {this.state.getForecast} />
         
         
       </div>

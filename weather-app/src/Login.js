@@ -28,6 +28,18 @@ class Login extends Component {
         }
     }
 
+    handleChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+      };
+
+      handleLogin = event => {
+        
+        const zipcode = this.state.zip;
+        localStorage.setItem('zipcode', zipcode);
+        
+        
+      };
+
     render(){
         return(
             <div style={loginDiv}>
@@ -36,15 +48,15 @@ class Login extends Component {
                    
                     <h2>Please Enter Your ZipCode</h2>
                     <input 
-                            type='text'
-                            name='username'
-                            placeholer='Username'
+                            type='numbers'
+                            name='zip'
+                            placeholer='Zipcode'
                             required="required"
-                            value={this.state.username}
+                            value={this.state.zip}
                             onChange={this.handleChange}
                     />
                  
-                    <button> Get Weather </button>
+                    <button onClick={this.handleLogin}> Get Weather </button>
                 </form>
                 
             </div>

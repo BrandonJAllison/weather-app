@@ -12,9 +12,6 @@ const divStyle = {
     width: '100%'
   }
 
-
-
-
 class AppPage extends Component {
     constructor(props){
         super(props)
@@ -22,6 +19,7 @@ class AppPage extends Component {
 
             getWeather: [],
             getLocation: [],
+            
 
         }
     }
@@ -68,9 +66,12 @@ class AppPage extends Component {
         return(
             <div style={divStyle}>
             <NavBar handleSubmit={this.submit} handleChange={this.change} />
+            <button onClick={this.props.handleLogOut}>Log Out</button>
             <h1>Let's Take A Look at That Forecast</h1>
             <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
+            <div>
             <Forecast />
+            </div>
             </div>
         )
         }
