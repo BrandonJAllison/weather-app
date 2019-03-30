@@ -19,7 +19,7 @@ class Forecast extends Component {
   }
 
 componentDidMount(){
-    this.getForecast('http://api.apixu.com/v1/forecast.json?key=6865a0ce98c4410ca4f205844192303&q=04062&days=5')
+    this.getForecast('https://api.apixu.com/v1/forecast.json?key=6865a0ce98c4410ca4f205844192303&q=04062&days=5')
   }
 
   getForecast = URL => {
