@@ -25,7 +25,7 @@ class AppPage extends Component {
     }
     
     componentDidMount(){
-        this.getWeather('http://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=' +localStorage.getItem('zipcode'))
+        this.getWeather('https://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=' +localStorage.getItem('zipcode'))
       }
     
       getWeather = URL => {
