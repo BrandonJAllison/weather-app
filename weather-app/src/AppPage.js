@@ -25,7 +25,7 @@ class AppPage extends Component {
     }
     
     componentDidMount(){
-        this.getWeather('http://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=04062')
+        this.getWeather('http://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=' +localStorage.getItem('zipcode'))
       }
     
       getWeather = URL => {
@@ -67,7 +67,7 @@ class AppPage extends Component {
             <div style={divStyle}>
             <NavBar handleSubmit={this.submit} handleChange={this.change} />
             <button onClick={this.props.handleLogOut}>Log Out</button>
-            <h1>Let's Take A Look at That Forecast</h1>
+            <h1>Let's Take A Look at That Forecast for {this.state.getLocation.name}</h1>
             <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
             <div>
             <Forecast />
