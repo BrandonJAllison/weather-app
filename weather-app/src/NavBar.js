@@ -6,7 +6,7 @@ const styleDiv = {
     justifyContent: 'center',
     alignItems: 'center',
     color: 'white', 
-    background: '#001630',
+    background: '#2E75C0',
     boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
     paddingLeft: '20px'
    

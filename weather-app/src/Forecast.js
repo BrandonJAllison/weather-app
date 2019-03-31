@@ -19,8 +19,10 @@ class Forecast extends Component {
   }
 
 componentDidMount(){
-    this.getForecast('https://api.apixu.com/v1/forecast.json?key=6865a0ce98c4410ca4f205844192303&q=04062&days=5')
+    this.getForecast('http://api.apixu.com/v1/forecast.json?key=c8ef876b49794b9c9ad163113193103&q=&days=5&q=' +localStorage.getItem('zipcode'))
   }
+
+  
 
   getForecast = URL => {
 
@@ -42,6 +44,8 @@ componentDidMount(){
       });
 
   };
+
+ 
 
   render(){
     

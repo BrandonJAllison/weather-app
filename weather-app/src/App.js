@@ -12,7 +12,7 @@ const divStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  fontFamily: 'Shadows Into Light'
+  fontFamily: 'Heebo',
 }
 
 
