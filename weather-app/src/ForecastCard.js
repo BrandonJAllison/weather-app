@@ -5,7 +5,7 @@ const styledCard = {
     
     textAlign: 'center',
     width: '200px',
-    height: '200px',
+    height: 'auto',
    
     
     

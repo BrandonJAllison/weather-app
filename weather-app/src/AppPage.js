@@ -28,7 +28,9 @@ class AppPage extends Component {
     }
     
     componentDidMount(){
-        this.getWeather('https://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=' +localStorage.getItem('zipcode'))
+        this.getWeather('https://api.apixu.com/v1/current.json?key=c8ef876b49794b9c9ad163113193103&q='+localStorage.getItem('zipcode')
+
+        )
       
       
       }
@@ -83,5 +85,4 @@ class AppPage extends Component {
         )
         }
     }
-
 export default AppPage
