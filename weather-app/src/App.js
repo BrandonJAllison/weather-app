@@ -12,7 +12,7 @@ const divStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  fontFamily: 'Pathway Gothic One, sans-serif'
+  fontFamily: 'Heebo',
 }
 
 

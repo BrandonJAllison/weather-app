@@ -8,13 +8,17 @@ const loginDiv = {
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
-    fontFamily: 'Shadows Into Light',
+    fontFamily: 'Heebo',
    
 }
+
+const button = {
+
+}
 const formDiv ={
-    background: ' #001630',
+    background: ' #2E75C0',
     color: 'white',
-    border: '2px solid white',
+    border: '2px solid #F8B409',
     borderRadius: '15px',
     padding: '30px',
     boxShadow:'3px 3px 5px 6px gray'  
@@ -56,7 +60,7 @@ class Login extends Component {
                             onChange={this.handleChange}
                     />
                  
-                    <button onClick={this.handleLogin}> Get Weather </button>
+                    <button style = {button} onClick={this.handleLogin}> Get Weather </button>
                 </form>
                 
             </div>

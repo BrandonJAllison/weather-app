@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import WeatherCard from './WeatherCard';
 import Forecast from './Forecast';
-import NavBar from './NavBar'
+import NavBar from './NavBar';
+
+
+
 
 
 const divStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontFamily: 'Shadows Into Light',
+    fontFamily: 'Heebo',
     width: '100%'
   }
 
@@ -26,6 +29,8 @@ class AppPage extends Component {
     
     componentDidMount(){
         this.getWeather('https://api.apixu.com/v1/current.json?key=6865a0ce98c4410ca4f205844192303&q=' +localStorage.getItem('zipcode'))
+      
+      
       }
     
       getWeather = URL => {
@@ -64,10 +69,12 @@ class AppPage extends Component {
     
     render(){
         return(
+          
             <div style={divStyle}>
+            
             <NavBar handleSubmit={this.submit} handleChange={this.change} />
             <button onClick={this.props.handleLogOut}>Log Out</button>
-            <h1>Let's Take A Look at That Forecast for {this.state.getLocation.name}</h1>
+            <h1>Let's Take A Look at The Forecast for {this.state.getLocation.name}</h1>
             <WeatherCard getWeather={this.state.getWeather} getLocation={this.state.getLocation} />
             <div>
             <Forecast />
