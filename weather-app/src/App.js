@@ -13,6 +13,8 @@ const divStyle = {
   flexDirection: 'column',
   alignItems: 'center',
   fontFamily: 'Heebo',
+  background: 'black',
+  color: 'white'
 }
 
 
